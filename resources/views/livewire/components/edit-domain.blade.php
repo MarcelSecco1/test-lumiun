@@ -46,18 +46,10 @@
             </div>
 
         </div>
-
         <div class="flex justify-end space-x-4 mt-5">
-            <x-ts-button color="red" text="Cancel" x-on:click="$modalClose('modal-create')" />
-            <x-ts-button color="primary" text="Create" type="submit" wire:click="$dispatch('createDomainSubmit')"
+            <x-ts-button color="red" text="Cancel" wire:click="$dispatch('closeEditModal')" />
+            <x-ts-button color="primary" text="Edit" type="submit" wire:click="$dispatch('editDomainSubmit')"
                 wire:navigate />
         </div>
     </form>
 </div>
-@script
-    <script>
-        $wire.on('closeModal', () => {
-            $modalClose('modal-create');
-        });
-    </script>
-@endscript

@@ -14,7 +14,8 @@ class Domain extends Model
         'is_blocked',
         'status',
         'priority',
-        'description'
+        'description',
+        'user_id',
     ];
 
     public function scopeActive($query)

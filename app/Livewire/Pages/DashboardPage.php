@@ -8,10 +8,9 @@ class DashboardPage extends Component
 {
 
     public $modalCreateDomain = false;
-    
+
     public $role;
     public $status;
-    public $priority;
 
     public function defineFilter()
     {
@@ -26,7 +25,6 @@ class DashboardPage extends Component
         $this->dispatch('filterDomains', [
             'role' => $this->role,
             'status' => $this->status,
-            'priority' => $this->priority
         ]);
     }
 
@@ -34,7 +32,6 @@ class DashboardPage extends Component
     {
         $this->role = null;
         $this->status = null;
-        $this->priority = null;
 
         $this->defineFilter();
     }

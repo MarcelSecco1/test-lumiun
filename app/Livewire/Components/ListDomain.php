@@ -8,20 +8,27 @@ use Illuminate\View\View;
 use App\Models\Domain;
 use Livewire\Attributes\Url;
 use Livewire\Attributes\On;
+use App\Services\DomainService;
+use TallStackUi\Traits\Interactions;
 
 class ListDomain extends Component
 {
-    use WithPagination;
+    use WithPagination, Interactions;
 
     const PAGINATION = 15;
 
     public $filter = [];
 
+    public $showEditModal = false;
     public $showDeleteModal = false;
     public $domainIdToDelete = null;
 
-    #[Url('dashboard')]
-    public $url;
+    protected $domainService;
+
+    public function __construct()
+    {
+        $this->domainService = new DomainService();
+    }
 
     #[On('filterDomains')]
     public function filterDomains($filter)
@@ -36,35 +43,31 @@ class ListDomain extends Component
         $this->domainIdToDelete = $domainId;
     }
 
+    #[On('closeEditModal')]
+    public function toggleEditModal($domainId = null)
+    {
+        $this->showEditModal = !$this->showEditModal;
+        if ($domainId) {
+            $this->dispatch('defineDomain', $domainId);
+        }
+    }
+
     public function deleteDomain()
     {
         if ($this->domainIdToDelete) {
-            $domain = Domain::find($this->domainIdToDelete);
-            if ($domain) {
-                $domain->delete();
-            }
+            $this->domainService->deleteDomain($this->domainIdToDelete);
             $this->reset(['domainIdToDelete', 'showDeleteModal']);
+            $this->toast()->success('Domain has deleted!!')->send();
             $this->resetPage();
         }
     }
 
     private function getDomains()
     {
-        $query = Domain::query();
 
-        if (isset($this->filter['role'])) {
-            $query->where('is_blocked', $this->filter['role']);
-        }
+        $domains = $this->domainService->filterDomains($this->filter, auth()->id());
 
-        if (isset($this->filter['status'])) {
-            $query->where('status', $this->filter['status']);
-        }
-
-        if (isset($this->filter['priority'])) {
-            $query->where('priority', $this->filter['priority']);
-        }
-
-        return $query->paginate(self::PAGINATION);
+        return $domains->paginate(self::PAGINATION);
     }
 
 
