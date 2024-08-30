@@ -1,5 +1,5 @@
 <div>
-    <form>
+    <form wire:submit='editDomainSubmit'>
         <div class="flex flex-col space-y-4">
             <div class="flex flex-col space-y-2">
                 <label for="role" class="text-gray-800 dark:text-gray-200">Domain</label>
@@ -48,8 +48,7 @@
         </div>
         <div class="flex justify-end space-x-4 mt-5">
             <x-ts-button color="red" text="Cancel" wire:click="$dispatch('closeEditModal')" />
-            <x-ts-button color="primary" text="Edit" type="submit" wire:click="$dispatch('editDomainSubmit')"
-                wire:navigate />
+            <x-ts-button color="primary" text="Edit" type="submit" />
         </div>
     </form>
 </div>

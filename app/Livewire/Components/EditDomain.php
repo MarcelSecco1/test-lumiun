@@ -56,8 +56,7 @@ class EditDomain extends Component
     }
 
 
-    #[On('editDomainSubmit')]
-    public function editDomain()
+    public function editDomainSubmit()
     {
         $this->validate();
 

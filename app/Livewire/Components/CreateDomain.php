@@ -34,12 +34,12 @@ class CreateDomain extends Component
         $this->domainService = new DomainService();
     }
 
-    #[On('createDomainSubmit')]
-    public function save()
+    // #[On('createDomainSubmit')]
+    public function createDomainSubmit()
     {
         $this->validate();
 
-        if($this->priority < 0 || $this->priority > 100) {
+        if ($this->priority < 0 || $this->priority > 100) {
             $this->addError('priority', 'Priority must be between 0 and 100');
             return;
         }

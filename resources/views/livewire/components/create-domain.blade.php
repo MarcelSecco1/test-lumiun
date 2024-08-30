@@ -1,5 +1,5 @@
 <div>
-    <form>
+    <form wire:submit="createDomainSubmit">
         <div class="flex flex-col space-y-4">
             <div class="flex flex-col space-y-2">
                 <label for="role" class="text-gray-800 dark:text-gray-200">Domain</label>
@@ -49,8 +49,7 @@
 
         <div class="flex justify-end space-x-4 mt-5">
             <x-ts-button color="red" text="Cancel" x-on:click="$modalClose('modal-create')" />
-            <x-ts-button color="primary" text="Create" type="submit" wire:click="$dispatch('createDomainSubmit')"
-                wire:navigate />
+            <x-ts-button color="primary" text="Create" type="submit" />
         </div>
     </form>
 </div>
