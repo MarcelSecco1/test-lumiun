@@ -76,5 +76,5 @@ Gere o build das dependências Node
 npm run build
 ```
 
-Por fim, basta acessar o projeto
+Por fim, basta acessar o projeto:
 [http://localhost:8989](http://localhost:8989)
