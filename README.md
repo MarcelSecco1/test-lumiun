@@ -45,11 +45,6 @@ Instale as dependências Node
 npm install
 ```
 
-Gere o build das dependências
-```sh
-npm run build
-```
-
 Suba os containers do projeto
 ```sh
 docker-compose up -d
@@ -72,5 +67,14 @@ php artisan key:generate
 php artisan migrate
 ```
 
-Acessar o projeto
+Saia do container
+```sh
+exit
+```
+Gere o build das dependências Node
+```sh
+npm run build
+```
+
+Por fim, basta acessar o projeto
 [http://localhost:8989](http://localhost:8989)
