@@ -22,7 +22,7 @@ Configurei o MySQL como banco de dados principal e um container com Redis como b
 Adotei a arquitetura Livewire, que favorece o desenvolvimento com componentes. Como destaque, utilizei uma ferramenta de UI Open Source para facilitar a criação dos componentes: [TALL Stack UI](https://tallstackui.com/).
 
 ### Passo a passo de Instalação
-Para este projeto funcionar precisar ter instalados como pré requisitos:
+Para este projeto funcionar precisa ter instalados como pré requisitos:
 - Node.js
 - Docker
 
@@ -50,11 +50,12 @@ Suba os containers do projeto
 docker-compose up -d
 ```
 
-Acessar o container
+Acesse o container
 ```sh
 docker-compose exec app bash
 ```
 
+Dentro do container, execute os próximos passos:
 
 Instale as dependências do composer
 ```sh
