@@ -5,8 +5,6 @@ namespace App\Livewire\Components;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\View\View;
-use App\Models\Domain;
-use Livewire\Attributes\Url;
 use Livewire\Attributes\On;
 use App\Services\DomainService;
 use TallStackUi\Traits\Interactions;
