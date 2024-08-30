@@ -21,11 +21,6 @@ Configurei o MySQL como banco de dados principal e um container com Redis como b
 
 Adotei a arquitetura Livewire, que favorece o desenvolvimento com componentes. Como destaque, utilizei uma ferramenta de UI Open Source para facilitar a criação dos componentes: [TALL Stack UI](https://tallstackui.com/).
 
-
-
-
-
-
 ### Passo a passo de Instalação
 Para este projeto funcionar precisar ter instalados como pré requisitos:
 - Node.js
@@ -39,7 +34,6 @@ git clone https://github.com/MarcelSecco1/test-lumiun.git
 ```sh
 cd test-lumiun/
 ```
-
 
 Crie o Arquivo .env
 ```sh
@@ -77,7 +71,6 @@ Gerar a key do projeto Laravel e rodar as migrations
 php artisan key:generate
 php artisan migrate
 ```
-
 
 Acessar o projeto
 [http://localhost:8989](http://localhost:8989)
