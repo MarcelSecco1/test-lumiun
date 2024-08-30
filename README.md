@@ -1,25 +1,41 @@
 
-# Setup Docker Para Projetos Laravel (8, 9 ou 10)
+# Teste para Lumiun
+
+### Sobre
+
+Construi este projeto com base no teste apresentado pela empresa Lumiun. Sua principal funcionalidade é um CRUD que simula o controle de domínios dentro de uma rede.
+
+Utilizei com stack a principal utilizada no ambiente de trabalho, sendo: TALL.
+- TailwindCSS
+- Alpine.js
+- Laravel
+- Livewire
+
+Como diferencial, implementei a Clean Architecture, separando o código em camadas como Services, onde apliquei as regras de negócio, e Repository, responsável pelo acesso direto ao banco de dados.
+
+Além disso, usei o Docker como ferramenta de ambientação, optando por não utilizar o Laravel Sail devido a algumas configurações pessoais.
+
+Configurei o MySQL como banco de dados principal e um container com Redis como banco de memória, devido à sua alta velocidade e bom desempenho.
+
+Adotei a arquitetura Livewire, que favorece o desenvolvimento com componentes. Como destaque, utilizei uma ferramenta de UI Open Source para facilitar a criação dos componentes: [TALL Stack UI](https://tallstackui.com/).
 
 
-### Passo a passo
+
+
+
+
+### Passo a passo de Instalação
+Para este projeto funcionar precisar ter instalados como pré requisitos:
+- Node.js
+- Docker
+
 Clone Repositório
 ```sh
-git clone https://github.com/especializati/setup-docker-laravel.git
+git clone https://github.com/MarcelSecco1/test-lumiun.git
 ```
 
-Clone os Arquivos do Laravel
 ```sh
-git clone https://github.com/laravel/laravel.git app-laravel
-```
-
-
-Copie os arquivos docker-compose.yml, Dockerfile e o diretório docker/ para o seu projeto
-```sh
-cp -rf setup-docker-laravel/* app-laravel/
-```
-```sh
-cd app-laravel/
+cd test-lumiun/
 ```
 
 
@@ -28,34 +44,20 @@ Crie o Arquivo .env
 cp .env.example .env
 ```
 
-
-Atualize as variáveis de ambiente do arquivo .env
-```dosini
-APP_NAME="Marcel"
-APP_URL=http://localhost:8989
-
-DB_CONNECTION=mysql
-DB_HOST=db
-DB_PORT=3306
-DB_DATABASE=laravel
-DB_USERNAME=root
-DB_PASSWORD=root
-
-CACHE_DRIVER=redis
-QUEUE_CONNECTION=redis
-SESSION_DRIVER=redis
-
-REDIS_HOST=redis
-REDIS_PASSWORD=null
-REDIS_PORT=6379
+Instale as dependencias Node
+```sh
+npm install
 ```
 
+Gere o build das dependencias
+```sh
+npm run build
+```
 
 Suba os containers do projeto
 ```sh
 docker-compose up -d
 ```
-
 
 Acessar o container
 ```sh
@@ -68,10 +70,11 @@ Instalar as dependências do projeto
 composer install
 ```
 
+Gerar a key do projeto Laravel e rodar as migrations
 
-Gerar a key do projeto Laravel
 ```sh
 php artisan key:generate
+php artisan migrate
 ```
 
 

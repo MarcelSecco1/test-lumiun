@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="flex flex-col space-y-2">
-                <label for="priority" class="text-gray-800 dark:text-gray-200">Priority</label>
+                <label for="priority" class="text-gray-800 dark:text-gray-200">Priority (0-100)</label>
                 <x-ts-number id="priority" name="priority"
                     class="w-full p-2 border border-gray-300 dark:border-gray-700 rounded-lg" wire:model='priority'
                     hint="Press the plus button to increase one by one" min="1" max="100" />

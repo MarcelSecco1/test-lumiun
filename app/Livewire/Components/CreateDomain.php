@@ -22,7 +22,7 @@ class CreateDomain extends Component
     #[Validate('required|max:1|in:0,1')]
     public $status;
 
-    #[Validate('required|integer')]
+    #[Validate('required|integer|max:100')]
     public $priority;
 
     public $description;
@@ -38,6 +38,11 @@ class CreateDomain extends Component
     public function save()
     {
         $this->validate();
+
+        if($this->priority < 0 || $this->priority > 100) {
+            $this->addError('priority', 'Priority must be between 0 and 100');
+            return;
+        }
 
         $data = [
             'domain' => $this->domain,
